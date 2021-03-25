@@ -2,8 +2,10 @@ package edu.birzeit.samplebioapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -26,5 +28,7 @@ public class MainActivity extends AppCompatActivity {
         String hobbies = edtHobbies.getText().toString();
         txtHobbies.setText(hobbies);
         txtHobbies.setVisibility(View.VISIBLE);
+        InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        mgr.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }
